@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MathLib C++ Documentation</title>
+
+    <style>
+        body
+        {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            margin: 40px;
+            line-height: 1.6;
+        }
+
+        h1
+        {
+            color: #4caf50;
+        }
+
+        h2
+        {
+            color: #00bcd4;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+
+        .card
+        {
+            background: #222;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        code, pre
+        {
+            background: #000;
+            color: #00ff88;
+            padding: 15px;
+            border-radius: 8px;
+            display: block;
+            overflow-x: auto;
+        }
+
+        li
+        {
+            margin: 5px;
+        }
+
+        a
+        {
+            color: #4caf50;
+        }
+
+        .title
+        {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="title">
+
+<h1>MathLib C++</h1>
+
+<p>
+Documentation officielle de MathLib.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Présentation</h2>
+
+<p>
+MathLib est une petite bibliothèque mathématique
+en C++ permettant de réaliser facilement des calculs
+courants, de la géométrie et de la trigonométrie.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Installation</h2>
+
+<p>
+Clonez le projet :
+</p>
+
+<pre>
+git clone https://github.com/unnread/mathlib.git
+</pre>
+
+<p>
+Ajoutez ensuite le fichier :
+</p>
+
+<pre>
+#include "math.hpp"
+</pre>
+
+dans votre projet C++.
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Compilation</h2>
+
+<p>
+Avec g++ :
+</p>
+
+<pre>
+g++ main.cpp -o programme
+</pre>
+
+<p>
+Linux :
+</p>
+
+<pre>
+./programme
+</pre>
+
+<p>
+Windows :
+</p>
+
+<pre>
+programme.exe
+</pre>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Exemple rapide</h2>
+
+<pre>
+#include "math.hpp"
+#include &lt;iostream&gt;
+
+int main()
+{
+    std::cout 
+        &lt;&lt; math::addition(5, 10);
+
+    return 0;
+}
+</pre>
+
+Résultat :
+
+<pre>
+15
+</pre>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Fonctions disponibles</h2>
+
+
+<h3>Calculs</h3>
+
+<ul>
+<li>addition()</li>
+<li>soustraction()</li>
+<li>multiplication()</li>
+<li>division()</li>
+<li>carre()</li>
+<li>puissance()</li>
+<li>racineCarree()</li>
+</ul>
+
+
+<h3>Géométrie</h3>
+
+<ul>
+<li>pythagoreCalculDistance()</li>
+<li>pythagoreHypotenuse()</li>
+</ul>
+
+
+<h3>Trigonométrie</h3>
+
+<ul>
+<li>sinus()</li>
+<li>cosinus()</li>
+<li>tangente()</li>
+</ul>
+
+
+<h3>Conversions</h3>
+
+<ul>
+<li>degresVersRadians()</li>
+<li>radiansVersDegres()</li>
+</ul>
+
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Exemples</h2>
+
+
+<h3>Addition</h3>
+
+<pre>
+math::addition(5, 3, 10);
+</pre>
+
+
+<h3>Pythagore</h3>
+
+<pre>
+math::pythagoreHypotenuse(3,4);
+</pre>
+
+Résultat :
+
+<pre>
+5
+</pre>
+
+
+<h3>Distance</h3>
+
+<pre>
+math::pythagoreCalculDistance(0,0,3,4);
+</pre>
+
+Résultat :
+
+<pre>
+5
+</pre>
+
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Structure du projet</h2>
+
+<pre>
+mathlib/
+
+├── math.hpp
+├── README.md
+├── LICENSE
+
+├── examples/
+│   └── example.cpp
+
+└── docs/
+    └── index.html
+</pre>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Licence</h2>
+
+<p>
+MathLib est distribué sous licence MIT.
+</p>
+
+<p>
+Vous pouvez utiliser, modifier et redistribuer
+le projet en conservant la licence.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Projet</h2>
+
+<p>
+Créé avec ❤️ en C++.
+</p>
+
+</div>
+
+
+</body>
+
+</html>
