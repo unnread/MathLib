@@ -41,7 +41,7 @@ Petit exemple de code.
 La documentation est disponible dans :
 
 ```text
-docs/index.html
+documentation/index.html
 ```
 
 Ouvrez simplement ce fichier avec votre navigateur.
