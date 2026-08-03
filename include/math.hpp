@@ -146,4 +146,17 @@ namespace math
     {
         return radians * (180.0f / 3.14159265358979323846f);
     }
+
+    inline unsigned long long factoriel(unsigned int nombre)
+    {
+        unsigned long long resulat = 1;
+
+        for(unsigned int i = 1; i <= nombre; i++)
+            {
+                resultat *= i;
+            }
+
+        return resultat;
+        
+    }
 }
