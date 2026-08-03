@@ -19,6 +19,7 @@ Petite description de la bibliothèque.
 - Cosinus
 - Tangente
 - Conversion degrés ↔ radians
+- factoriel
 
 ---
 
