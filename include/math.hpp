@@ -1,169 +1,112 @@
 #pragma once
-
 #include <cmath>
 
 namespace math
 {
 
-// =========================
 // Addition
-// =========================
-template<typename... Nombres>
-auto addition(Nombres... nombres)
+template<typename... T>
+auto addition(T... n)
 {
-    return (nombres + ...);
+    return (n + ...);
 }
 
-
-// =========================
 // Soustraction
-// =========================
-template<typename T, typename... Nombres>
-auto soustraction(T premier, Nombres... nombres)
+template<typename T, typename... N>
+auto soustraction(T a, N... n)
 {
-    return premier - (nombres + ...);
+    return a - (n + ...);
 }
 
-
-// =========================
 // Multiplication
-// =========================
-template<typename... Nombres>
-auto multiplication(Nombres... nombres)
+template<typename... T>
+auto multiplication(T... n)
 {
-    return (nombres * ...);
+    return (n * ...);
 }
 
-
-// =========================
 // Division
-// =========================
-template<typename T, typename... Nombres>
-auto division(T premier, Nombres... nombres)
+template<typename T, typename... N>
+auto division(T a, N... n)
 {
-    return premier / (nombres * ...);
+    return a / (n * ...);
 }
 
-
-// =========================
-// Carré d'un nombre
-// =========================
+// Carré
 template<typename T>
-auto carre(const T nombre)
+auto carre(T n)
 {
-    return nombre * nombre;
+    return n * n;
 }
 
-
-// =========================
 // Puissance
-// =========================
 template<typename T, typename U>
-auto puissance(T nombre, U exposant)
+auto puissance(T n, U p)
 {
-    return std::pow(nombre, exposant);
+    return std::pow(n, p);
 }
 
-
-// =========================
 // Racine carrée
-// =========================
 template<typename T>
-auto racineCarree(T nombre)
+auto racineCarree(T n)
 {
-    return std::sqrt(nombre);
+    return std::sqrt(n);
 }
 
-
-// =========================
 // Distance entre deux points
-// =========================
-inline float pythagoreCalculDistance(
-    float x1,
-    float y1,
-    float x2,
-    float y2
-)
+inline float distance(float x1, float y1, float x2, float y2)
 {
-    float dx = x2 - x1;
-    float dy = y2 - y1;
-
-    return std::sqrt(dx * dx + dy * dy);
+    return std::hypot(x2 - x1, y2 - y1);
 }
 
-
-// =========================
-// Hypoténuse d'un triangle rectangle
-// =========================
-inline float pythagoreHypotenuse(float a, float b)
+// Hypoténuse
+inline float hypotenuse(float a, float b)
 {
-    return std::sqrt(a * a + b * b);
+    return std::hypot(a, b);
 }
 
-
-// =========================
 // Sinus
-// =========================
 template<typename T>
-auto sinus(T angle)
+auto sinus(T a)
 {
-    return std::sin(angle);
+    return std::sin(a);
 }
 
-
-// =========================
 // Cosinus
-// =========================
 template<typename T>
-auto cosinus(T angle)
+auto cosinus(T a)
 {
-    return std::cos(angle);
+    return std::cos(a);
 }
 
-
-// =========================
 // Tangente
-// =========================
 template<typename T>
-auto tangente(T angle)
+auto tangente(T a)
 {
-    return std::tan(angle);
+    return std::tan(a);
 }
 
-
-// =========================
-// Conversion degrés -> radians
-// =========================
-inline float degresVersRadians(float degres)
+// Degrés → radians
+inline float degresVersRadians(float d)
 {
-    return degres * (3.14159265358979323846f / 180.0f);
+    return d * 3.14159265359f / 180.0f;
 }
 
-
-// =========================
-// Conversion radians -> degrés
-// =========================
-inline float radiansVersDegres(float radians)
+// Radians → degrés
+inline float radiansVersDegres(float r)
 {
-    return radians * (180.0f / 3.14159265358979323846f);
+    return r * 180.0f / 3.14159265359f;
 }
 
-
-// =========================
 // Factorielle
-// =========================
-// Exemple : 5! = 5 × 4 × 3 × 2 × 1 = 120
-inline unsigned long long factorielle(unsigned int nombre)
+inline unsigned long long factorielle(unsigned int n)
 {
-    unsigned long long resultat = 1;
+    unsigned long long r = 1;
 
-    for(unsigned int i = 1; i <= nombre; i++)
-    {
-        resultat *= i;
-    }
+    for (unsigned int i = 1; i <= n; i++)
+        r *= i;
 
-    return resultat;
+    return r;
 }
-
 
 }
