@@ -1,72 +1,62 @@
 # MathLib
 
-Petite description de la bibliothèque.
+A small C++ library for common mathematical calculations.
 
----
+## Features
 
-## ✨ Fonctionnalités
+- Addition, subtraction, multiplication, and division
+- Squares, powers, and square roots
+- Distance between two points and hypotenuse calculations
+- Sine, cosine, and tangent
+- Degree-to-radian and radian-to-degree conversions
+- Factorials
+- Length conversions between km, hm, dam, m, dm, cm, and mm
+- Weight conversions between kg, hg, dag, g, dg, cg, and mg
+- Celsius-to-Fahrenheit and Fahrenheit-to-Celsius conversions
 
-- Addition
-- Soustraction
-- Multiplication
-- Division
-- Carré
-- Puissance
-- Racine carrée
-- Distance entre deux points
-- Théorème de Pythagore
-- Sinus
-- Cosinus
-- Tangente
-- Conversion degrés ↔ radians
-- factoriel
+## Installation
 
----
+Clone the repository:
 
-## 📦 Installation
-
-Comment télécharger ou cloner le dépôt.
-
----
-
-## 🚀 Utilisation
-
-Comment inclure `math.hpp`.
-
-Petit exemple de code.
-
----
-
-## 📖 Documentation
-
-La documentation est disponible dans :
-
-```text
-documentation/index.html
+```sh
+git clone https://github.com/unnread/MathLib.git
 ```
 
-Ouvrez simplement ce fichier avec votre navigateur.
+The math functions are in `include/math.hpp`. Unit and temperature conversions
+are in `include/conversion.hpp`.
 
----
+## Usage
 
-## 📄 Licence
+```cpp
+#include "include/conversion.hpp"
+#include "include/math.hpp"
+#include <iostream>
 
-Ce projet est distribué sous la licence **MIT**.
+int main()
+{
+    std::cout << math::add(5, 3, 10) << '\n';
+    std::cout << math::hypotenuse(3, 4) << '\n';
 
-Vous êtes libre de :
+    std::cout << KmToM(2) << " meters\n";
+    std::cout << KgToG(2) << " grams\n";
+    std::cout << CelsiusToFahrenheit(20) << " Fahrenheit\n";
+}
+```
 
-- ✅ Utiliser MathLib dans des projets personnels.
-- ✅ Utiliser MathLib dans des projets commerciaux.
-- ✅ Modifier le code source.
-- ✅ Redistribuer le projet.
-- ✅ Créer des versions dérivées.
+Compile the full example from the repository root with a C++17 compiler:
 
-À condition de conserver la licence et les mentions de copyright.
+```sh
+g++ -std=c++17 -I. examples/example.cpp -o mathlib-demo
+```
 
-Consultez le fichier `LICENSE` pour le texte complet de la licence.
+See [examples/example.cpp](examples/example.cpp) for arithmetic, geometry,
+trigonometry, length, weight, and temperature examples. Conversion functions
+return integers, so conversions that produce fractional values are truncated.
 
-## Exemple
+## Documentation
 
-Voir :
+Open [documentation/index.html](documentation/index.html) in a web browser.
 
-examples/example.cpp
+## License
+
+MathLib is distributed under the MIT License. See [LICENSE](LICENSE) for details.

@@ -1,299 +1,198 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>MathLib C++ Documentation</title>
-
+    <title>MathLib — C++ math helpers</title>
     <style>
-        body
-        {
-            font-family: Arial, sans-serif;
-            background: #111;
-            color: white;
-            margin: 40px;
-            line-height: 1.6;
+        :root {
+            color-scheme: light;
+            --ink: #242720;
+            --muted: #676b60;
+            --line: #dedfd6;
+            --paper: #f7f7f2;
+            --accent: #436b48;
+            --code: #eeefe8;
         }
 
-        h1
-        {
-            color: #4caf50;
+        * { box-sizing: border-box; }
+
+        body {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 48px 28px 64px;
+            background: var(--paper);
+            color: var(--ink);
+            font: 16px/1.65 "Segoe UI", Arial, sans-serif;
         }
 
-        h2
-        {
-            color: #00bcd4;
-            border-bottom: 1px solid #333;
-            padding-bottom: 5px;
+        header {
+            padding-bottom: 22px;
+            border-bottom: 1px solid var(--line);
         }
 
-        .card
-        {
-            background: #222;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 25px 0;
+        h1, h2, h3 { line-height: 1.25; }
+        h1 { margin: 0; font-size: 2rem; letter-spacing: -0.04em; }
+        h2 { margin: 42px 0 12px; font-size: 1.35rem; }
+        h3 { margin: 24px 0 8px; font-size: 1rem; }
+        p { margin: 10px 0; }
+        a { color: var(--accent); }
+
+        .intro { margin: 8px 0 0; color: var(--muted); }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+            padding: 14px 0 0;
+            font-size: 0.92rem;
         }
 
-        code, pre
-        {
-            background: #000;
-            color: #00ff88;
-            padding: 15px;
-            border-radius: 8px;
-            display: block;
+        nav a { text-decoration: none; }
+        nav a:hover { text-decoration: underline; }
+
+        code, pre {
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 0.9rem;
+        }
+
+        p code, td code { color: var(--accent); }
+
+        pre {
             overflow-x: auto;
+            margin: 12px 0;
+            padding: 16px 18px;
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            background: var(--code);
+            line-height: 1.55;
         }
 
-        li
-        {
-            margin: 5px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
         }
 
-        a
-        {
-            color: #4caf50;
+        th, td {
+            padding: 9px 12px 9px 0;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
         }
 
-        .title
-        {
-            text-align: center;
+        th { color: var(--muted); font-size: 0.9rem; font-weight: 600; }
+        td:first-child { width: 38%; }
+
+        footer {
+            margin-top: 48px;
+            padding-top: 14px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 560px) {
+            body { padding: 30px 18px 44px; }
+            h1 { font-size: 1.7rem; }
+            td:first-child { width: auto; }
         }
     </style>
-
 </head>
-
-
 <body>
+    <header>
+        <h1>MathLib</h1>
+        <p class="intro">Small math helpers for C++.</p>
+        <nav aria-label="Page navigation">
+            <a href="#start">Getting started</a>
+            <a href="#functions">Functions</a>
+            <a href="#license">License</a>
+        </nav>
+    </header>
 
+    <main>
+        <section id="start">
+            <h2>Getting started</h2>
+            <p>Clone the repository, then include the headers you need:</p>
+            <pre><code>#include "include/math.hpp"</code></pre>
+            <pre><code>#include "include/conversion.hpp"</code></pre>
 
-<div class="title">
-
-<h1>MathLib C++</h1>
-
-<p>
-Documentation officielle de MathLib.
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>Présentation</h2>
-
-<p>
-MathLib est une petite bibliothèque mathématique
-en C++ permettant de réaliser facilement des calculs
-courants, de la géométrie et de la trigonométrie.
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>Installation</h2>
-
-<p>
-Clonez le projet :
-</p>
-
-<pre>
-git clone https://github.com/unnread/MathLib.git
-</pre>
-
-<p>
-Ajoutez ensuite le fichier :
-</p>
-
-<pre>
-#include "math.hpp"
-</pre>
-
-dans votre projet C++.
-
-</div>
-
-
-
-<div class="card">
-
-<h2>Compilation</h2>
-
-<p>
-Avec g++ :
-</p>
-
-<pre>
-g++ main.cpp -o programme
-</pre>
-
-<p>
-Linux :
-</p>
-
-<pre>
-./programme
-</pre>
-
-<p>
-Windows :
-</p>
-
-<pre>
-programme.exe
-</pre>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>Exemple rapide</h2>
-
-<pre>
-#include "math.hpp"
+            <p>For example, save this as <code>main.cpp</code> in the repository root:</p>
+            <pre><code>#include "include/math.hpp"
+#include "include/conversion.hpp"
 #include &lt;iostream&gt;
 
 int main()
 {
-    std::cout 
-        &lt;&lt; math::addition(5, 10);
+    std::cout &lt;&lt; math::add(5, 10) &lt;&lt; '\n';
+    std::cout &lt;&lt; math::hypotenuse(3, 4) &lt;&lt; '\n';
+    std::cout &lt;&lt; KmToM(2) &lt;&lt; " meters\n";
+    std::cout &lt;&lt; KgToG(2) &lt;&lt; " grams\n";
+    std::cout &lt;&lt; CelsiusToFahrenheit(20) &lt;&lt; " Fahrenheit\n";
+}</code></pre>
 
-    return 0;
-}
-</pre>
+            <p>Compile it with a C++17 compiler:</p>
+            <pre><code>g++ -std=c++17 main.cpp -o mathlib-demo</code></pre>
+        </section>
 
-Résultat :
+        <section id="functions">
+            <h2>Functions</h2>
+            <table>
+                <thead>
+                    <tr><th>Function</th><th>What it does</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>add(...)</code></td><td>Adds the supplied values.</td></tr>
+                    <tr><td><code>subtract(a, ...)</code></td><td>Subtracts the remaining values from the first.</td></tr>
+                    <tr><td><code>multiply(...)</code></td><td>Multiplies the supplied values.</td></tr>
+                    <tr><td><code>divide(a, ...)</code></td><td>Divides the first value by the product of the remaining values.</td></tr>
+                    <tr><td><code>square(n)</code>, <code>power(n, p)</code></td><td>Calculates a square or a power.</td></tr>
+                    <tr><td><code>squareRoot(n)</code></td><td>Returns the square root.</td></tr>
+                    <tr><td><code>distance(x1, y1, x2, y2)</code></td><td>Distance between two points.</td></tr>
+                    <tr><td><code>hypotenuse(a, b)</code></td><td>Hypotenuse for the given sides.</td></tr>
+                    <tr><td><code>sine(a)</code>, <code>cosine(a)</code>, <code>tangent(a)</code></td><td>Trigonometric functions; angles are in radians.</td></tr>
+                    <tr><td><code>degreesToRadians(d)</code>, <code>radiansToDegrees(r)</code></td><td>Converts between degrees and radians.</td></tr>
+                    <tr><td><code>factorial(n)</code></td><td>Calculates the factorial of a non-negative integer.</td></tr>
+                </tbody>
+            </table>
 
-<pre>
-15
-</pre>
+            <h3>Length</h3>
+            <p>
+                Include <code>conversion.hpp</code> for conversions between
+                kilometers (km), hectometers (hm), decameters (dam), meters (m),
+                decimeters (dm), centimeters (cm), and millimeters (mm).
+                For example:
+            </p>
+            <pre><code>#include "include/conversion.hpp"
 
-</div>
+int meters = KmToM(2);       // 2000
+int centimeters = MToCm(3); // 300
+int kilometers = CmToKm(500000); // 5</code></pre>
 
+            <h3>Weight</h3>
+            <p>
+                Weight conversions are available between kilograms (kg),
+                hectograms (hg), decagrams (dag), grams (g), decigrams (dg),
+                centigrams (cg), and milligrams (mg).
+            </p>
+            <pre><code>int grams = KgToG(2);       // 2000
+int milligrams = GToMg(5); // 5000
+int kilograms = MgToKg(2000000); // 2</code></pre>
 
+            <h3>Temperature</h3>
+            <pre><code>int fahrenheit = CelsiusToFahrenheit(20); // 68
+int celsius = FahrenheitToCelsius(68);    // 20</code></pre>
+            <p>Conversion functions return integers, so fractional results are truncated.</p>
+        </section>
 
-<div class="card">
+        <section id="license">
+            <h2>License</h2>
+            <p>MathLib is distributed under the MIT License. See the <a href="../LICENSE">LICENSE</a> file.</p>
+        </section>
+    </main>
 
-<h2>Fonctions disponibles</h2>
-
-
-<h3>Calculs</h3>
-
-<ul>
-<li>addition()</li>
-<li>soustraction()</li>
-<li>multiplication()</li>
-<li>division()</li>
-<li>carre()</li>
-<li>puissance()</li>
-<li>racineCarree()</li>
-</ul>
-
-
-<h3>Géométrie</h3>
-
-<ul>
-<li>pythagoreCalculDistance()</li>
-<li>pythagoreHypotenuse()</li>
-</ul>
-
-
-<h3>Trigonométrie</h3>
-
-<ul>
-<li>sinus()</li>
-<li>cosinus()</li>
-<li>tangente()</li>
-</ul>
-
-
-<h3>Conversions</h3>
-
-<ul>
-<li>degresVersRadians()</li>
-<li>radiansVersDegres()</li>
-</ul>
-    
-</div>
-
-<div class="card">
-
-<h2>Exemples</h2>
-
-
-<h3>Addition</h3>
-
-<pre>
-math::addition(5, 3, 10);
-</pre>
-
-
-<h3>Pythagore</h3>
-
-<pre>
-math::pythagoreHypotenuse(3,4);
-</pre>
-
-Résultat :
-
-<pre>
-5
-</pre>
-
-
-<h3>Distance</h3>
-
-<pre>
-math::pythagoreCalculDistance(0,0,3,4);
-</pre>
-
-Résultat :
-
-<pre>
-5
-</pre>
-
-
-</div>
-
-
-
-<div class="card">
-
-<h2>Licence</h2>
-
-<p>
-MathLib est distribué sous licence MIT.
-</p>
-
-<p>
-Vous pouvez utiliser, modifier et redistribuer
-le projet en conservant la licence.
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>Projet</h2>
-
-<p>
-Créé avec ❤️ en C++.
-</p>
-
-</div>
-
-
+    <footer>
+        <a href="https://github.com/unnread/MathLib">MathLib on GitHub</a>
+    </footer>
 </body>
-
 </html>
